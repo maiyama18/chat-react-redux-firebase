@@ -6,11 +6,14 @@ import 'firebase/auth'
 import 'firebase/firestore'
 import rootReducer from './reducers'
 import firebaseConfig from '../firebaseConfig'
+import { roomInitialState } from './room'
 
 firebase.initializeApp(firebaseConfig)
 firebase.firestore().settings({ timestampsInSnapshots: true })
 
-const initialState = {}
+const initialState = {
+  room: roomInitialState,
+}
 
 const enhancers = [
   reduxFirestore(firebase),
